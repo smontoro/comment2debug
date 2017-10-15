@@ -61,6 +61,22 @@ addPostInput.value = '';
 addTextArea.value = '';
 
 //create event listener for up, down, remove buttons
+
+up.addEventListener('click', function() {
+	if(event.target.tagName == 'BUTTON') {
+		if(event.target.className == 'up') {
+			body.
+		}
+	}
+
+});
+
+
+
+
+
+
+
 remove.addEventListener('click', function() {
 	if(event.target.tagName == 'BUTTON') {
 		if(event.target.className == 'remove') {
@@ -75,15 +91,15 @@ showHide.addEventListener('click', function() {
 	if(postBody.style.display == 'none') {
 		showHide.textContent = 'Hide';
 		postBody.style.display = 'block';
-		// up.style.display = 'inline-block';
-		// down.style.display = 'inline-block';
+		up.style.display = 'inline-block';
+		down.style.display = 'inline-block';
 		remove.style.display = 'inline-block';
 	} else {
 		showHide.textContent = 'Show';
 		showHide.style.margin = '0.5em 0.5em 0.5em 0';
 		postBody.style.display = 'none';
-		// up.style.display = 'none';
-		// down.style.display = 'none';
+		up.style.display = 'none';
+		down.style.display = 'none';
 		remove.style.display = 'none';
 	}
 });

@@ -59,7 +59,7 @@ addTextArea.value = '';
 
 up.addEventListener('click', function(){
 	if(event.target.className == 'up'){
-		
+		a
 	}
 })
 

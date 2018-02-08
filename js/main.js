@@ -2,6 +2,7 @@
 var addPostInput = document.querySelector('input.addPostInput');
 var addTextArea = document.querySelector('textarea.addInput');
 var addPostButton = document.querySelector('button.addPostButton');
+var counter = 0;
 
 //event listener for posting functionality
 addPostButton.addEventListener('click', function() {
@@ -42,6 +43,8 @@ showHide.textContent = 'Hide';
 //append the header and body of textarea to the body within a div
 postBody.appendChild(header);
 postBody.appendChild(p);
+postBody.appendChild(buttonDiv)
+postBody.id = counter
 
 //append all buttons to the buttonDiv
 // buttonDiv.appendChild(up);
@@ -52,25 +55,28 @@ buttonDiv.appendChild(up);
 buttonDiv.appendChild(down);
 
 body.appendChild(postBody);
-body.appendChild(buttonDiv)
 
 addPostInput.value = '';
 addTextArea.value = '';
 
 up.addEventListener('click', function(){
-	if(event.target.className == 'up'){
-		a
-	}
+    if(event.target.parentElement.parentElement.id != 0) {
+        document.body.insertBefore(event.target.parentElement.parentElement, 
+        document.getElementById(parseInt(event.target.parentElement.parentElement.id) - 1));
+        event.target.parentElement.parentElement.id = parseInt(event.target.parentElement.parentElement.id) - 1;
+    }
+})
+
+down.addEventListener('click', function(){
+    if(document.getElementById(parseInt(event.target.parentElement.parentElement.id) + 2) == null && document.getElementById(parseInt(event.target.parentElement.parentElement.id) + 1) != null) {
+        document.body.insertBefore(document.getElementById(parseInt(event.target.parentElement.parentElement.id) + 1), event.target.parentElement.parentElement)
+    } 
+    event.target.parentElement.parentElement.id = parseInt(event.target.parentElement.parentElement.id) + 1
 })
 
 //create event listener for up, down, remove buttons
 remove.addEventListener('click', function(event) {
-	if(event.target.tagName == 'BUTTON') {
-		if(event.target.className == 'remove') {
-			body.removeChild(postBody);
-			body.removeChild(buttonDiv);
-		}
-	}
+	body.removeChild(postBody);
 })
 
 //create hide/show event listener for showHide button
@@ -90,6 +96,7 @@ showHide.addEventListener('click', function() {
 		remove.style.display = 'none';
 	}
 })
+counter++;
 
 });
 
